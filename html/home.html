@@ -1,0 +1,166 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <title>Pi</title>
+        <link rel="stylesheet" href="/css/home-style.css">
+    </head>
+    <body>
+        <div class="header">
+            <img class="logo" src="/images/Pi-symbol_(updated).svg" alt="pi-logo image">
+            <nav class="navbar">
+                <a href="#">Home</a>
+                <a href="Aboutus.html">About</a>
+                <a href="#">Blog</a>
+                <a href="Contactus.html">Contact</a>
+                <button class="login-btn" onclick="window.location.href='login.html';" value="login page">Login</button>
+                </ul>
+            </nav>
+        </div>
+        <div class="img-slider">
+            <div class="slide active">
+                <img src="/images/slide-1.jpeg" class="slide-img" alt="truck-1">
+                <div class="info">
+                    <h2>Welcome to Pi</h2>
+                    <p>Pi is a renowned technology company that specializes in<br> providing cutting cutting-edge solutions for<br> vehicle-tracking, weight monitoring and speed management.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="/images/slide-3.jpg" class="slide-img" alt="truck-2">
+                <div class="info">
+                    <h2>Welcome to Pi</h2>
+                    <p>Here at pi, we give the owner the power to monitor their fleet of cars.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="/images/slide-2.jpg" class="slide-img" alt="truck-3">
+                <div class="info">
+                    <h2>Welcome to Pi</h2>
+                    <p>Our innovative technology ensures that your goods are transported safely, securely and efficiently.</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="btn active"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+            </div>
+        </div>
+        <div class="ftr-row">
+            
+            <div class="ftr-col">
+                <h2>Services we provide</h2>
+                <div class="ftr-box">
+                    <h3>Vehicle Tracking</h3>
+                    <p>We provide real-time tracking of your vehicles, ensuring you always know their exact location, status, and route information, enabling you to manage your fleet efficiently and effectively.</p>
+                </div>
+                <div class="ftr-box">
+                    <h3>Weight Monitoring</h3>
+                    <p>We provide weight monitoring solutions that allow you to track the weight of your cargo in real-time, ensuring compliance with legal regulations and optimizing operational efficiency.</p>
+                </div>
+            </div>
+            <div class="ftr-col">
+                <div class="ftr-box">
+                    <h3>Speed Management</h3>
+                    <p>We provide speed management solutions that allow you to monitor the speed of your vehicle in real-time, ensuring compliance with legal regulations and promoting safe driving practices.</p>
+                </div>
+                <div class="ftr-box">
+                    <h3>Fleet Management</h3>
+                    <p>We provide comprehensive fleet management solutions that allow you to monitor and optimize your fleet's performance, reduce operational costs, and improve customer satisfaction.</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="section-1">
+                <h2 class="content-hdr">Streamlining Logistics: <br>Enhanced Fleet Management with pi</h2>
+                <p class="section-txt">Discover how pi's cutting-edge technology transformed the logistics operations of a leading e-commerce company, automated fleet management and optimizing delivery processes, resulting in a 30% reduction in delivery time and a 50% increase in customer satisfaction.
+                    <ul>
+                        <li>Automated fleet management</li>
+                        <li>30% reduction in delivery time</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="section-2">
+                <img src="/images/fleet-img.jpeg" class="section" alt="fleet image">
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="section-3">
+                <img src="/images/pi-2.webp" class="section" alt="fleet image">
+            </div>
+            <div class="section-4">
+                <h2 class="content-hdr">Maximizing Efficiency: <br>pi's Weight Monitoring Solutions</h2>
+                <p class="section-txt">Explore how pi's weight monitoring solutions improved the efficiency of a leading transportation company, enabling them to reduce costs and improve compliance with regulations.
+                    <ul>
+                        <li>Cost savings through reduced fines</li>
+                        <li>Improved compliance with regulations</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        
+        
+        <div class="ftr">
+            <footer>
+             <p>&copy; 2024 Overweight Alert System. All rights reserved.</p>
+            </footer>
+        </div>
+        
+
+        <script type="text/javascript">
+            var slides = document.querySelectorAll('.slide');
+            var btns = document.querySelectorAll.r5v('.btn');
+            let currentSlide = 1;
+
+            // for image slider manual navigation
+            var manualNav = function(manual){
+                slides.forEach((slide) => {
+                    slide.classList.remove('active');
+
+
+                    btns.forEach((btn) => {
+                        btn.classList.remove('active');
+                    });
+                });
+
+                slides[manual].classList.add('active');
+                btns[manual].classList.add('active');
+            }       
+
+            btns.forEach((btn, i) => {
+                btn.addEventListener("click", ()=> {
+                    manualNav(i);
+                    currentSlide = i;
+                });
+            });
+            var repeat = function(activeClass){
+                let active = document.getElementsByClassName('active');
+                let i = 1;
+                var repeater = () => {
+                    setTimeout(function(){
+                    
+                    slides[i].classList.add('active');
+                    btns[i].classList.add('active');
+                    i++;
+
+                    if(slides.length == i){
+                        i = 0;
+                    }
+                    if(i >= slides.length){
+                        return;
+                    }
+                    repeater(); 
+                }, 10000);
+                }
+                repeater();
+            }
+            repeat();
+        </script>
+        <!--<script src="/js/script.js"></script>-->
+    </body>
+</html>
